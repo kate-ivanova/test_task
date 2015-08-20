@@ -1,16 +1,138 @@
 extends layouts/default
 
-block content
-  .row.marketing
-    .col-lg-6
-      h4 HTML5 Boilerplate
-      p HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
+block user-form
+  .part#user-form(style='margin-right:20px')
+    .part-name
+      | Форма регистрации
+    form#user-data(action='url')
+      .form-area
+        .form-part-name Данные о звезде
+        .form-line
+          .name
+            label Имя
+            div
+              input#star-name.medium(type='text', required)
+          .name
+            label Величина
+            div
+              select#size.medium(required)
+                option(disabled, selected)
+                  | величина
+                - var items = [11, 12, 13, 14, 15]
+                - each item, i in items
+                  option('index'='#{i}') #{item}
+        .form-line
+          .name
+            label Созвездие
+            div
+              select#constellation.medium(required)
+                option(disabled, selected)
+                  | созвездие
+                - var items = ['Андромеда', 'Близнецы', 'Большая Медведица', 'Большой Пес', 'Весы', 'Водолей', 'Возничий', 'Волк', 'Волопас', 'Волосы Вероники', 'Ворон', 'Геркулес', 'Гидра', 'Голубь', 'Гончие Псы', 'Дева', 'Дельфин', 'Дракон', 'Единорог', 'Жертвенник', 'Живописец', 'Жираф', 'Журавль', 'Заяц', 'Змееносец', 'Змея', 'Золотая', 'Рыба', 'Индеец', 'Кассиопея', 'Киль']
+                - each item in items
+                  option= item
+        .form-part-name(style='border-top: 1px solid #e5e5e5; padding-top:15px;') Данные о покупателе
+        .form-line
+          .name
+            label Фамилия
+            div
+              input#last-name.medium(type='text', required)
+          .name
+            label Имя
+            div
+              input#first-name.medium(type='text', required)
+        .form-line
+          .name
+            label Отчество
+            div
+              input#patronymic.medium(type='text', required)
+        .form-line
+          div
+            label Дата рождения
+            div
+              input#birth-day.small(type='text', maxlength='2', placeholder='день', required)
+              select#birth-month.small(required)
+                option(disabled, selected)
+                  | месяц
+                - var items = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
+                - each item in items
+                  option= item
+              input#birth-year.small(type='text', maxlength='4', placeholder='год', required)
+        .form-line
+          div
+            label Пол
+            div
+              div.input-cont
+                input(type='radio', name='sex', value='none', checked)
+                | не указан
+              div.input-cont
+                input(type='radio', name='sex', value='male')
+                | муж
+              div.input-cont
+                input(type='radio', name='sex', value='female')
+                | жен
+        .form-line
+          .adress
+            label Страна
+            div
+              select#country.small(required)
+                option(value='Russia', selected)
+                  | Россия
+                - var items = ['Украина', 'Беларусь']
+                - each item in items
+                  option= item
+        .form-line
+          div
+            label Телефон
+              sup   *
+            div
+              input#phone.medium(type='text', value='+7')
+        .form-line
+          div
+            label Адрес эл. почты
+              sup   *
+            div
+              input#email.medium(type='text', placeholder='example@mail.ru')
+        .form-line
+          .sbm
+            input(type='submit', value='Сохранить')
 
-      h4 Sass
-      p Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
-
-      h4 Bootstrap
-      p Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.
-
-      h4 Modernizr
-      p Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.
+block user-document
+  .part#user-document
+    .part-name Данные о покупке
+    .document-area
+      .form-part-name Данные о звезде
+      .form-line
+        .doc-field-name Имя:
+        .doc-field.doc-field-val#star-name-val
+      .form-line
+        .doc-field-name Величина:
+        .doc-field.doc-field-val#size-val
+      .form-line
+        .doc-field-name Созвездие:
+        .doc-field.doc-field-val#constellation-val
+      .form-part-name  Данные о покупателе
+      .form-line
+        .doc-field-name ФИО:
+        .doc-field.doc-field-val
+          #last-name-val.splice-val
+          #first-name-val.splice-val
+          #patronymic-val.splice-val
+      .form-line
+        .doc-field-name Дата рождения:
+        .doc-field.doc-field-val
+          #birth-day-val.splice-val
+          #birth-month-val.splice-val
+          #birth-year-val.splice-val
+      .form-line
+        .doc-field-name Пол:
+        .doc-field.doc-field-val#sex-val не указан
+      .form-line
+        .doc-field-name Страна:
+        .doc-field.doc-field-val#country-val
+      .form-line
+        .doc-field-name Телефон:
+        .doc-field.doc-field-val#phone-val не указан
+      .form-line
+        .doc-field-name Адрес эл. почты:
+        .doc-field.doc-field-val#email-val не указана

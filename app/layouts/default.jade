@@ -2,7 +2,7 @@ doctype html
 html.no-js
   head
     meta(charset='utf-8')
-    title My Webapp
+    title Регистрация имени звезды
     meta(name='description' content='')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     // Place favicon.ico and apple-touch-icon.png in the root directory
@@ -27,22 +27,15 @@ html.no-js
 
     .container
       .header
-        ul.nav.nav-pills.pull-right
-          li.active: a(href='#') Home
-          li: a(href='#') About
-          li: a(href='#') Contact
+        h3.text-muted Регистрация имени звезды
 
-        h3.text-muted My Webapp
+      block user-form
 
-      .jumbotron
-        h1 'Allo, 'Allo!
-        p.lead Always a pleasure scaffolding your apps.
-        p: a.btn.btn-lg.btn-success(href='#') Splendid!
-
-      block content
+      block user-document
 
       .footer
-        p ♥ from the Yeoman team
+        p
+          sup   * - поля, не обязательные к заполнению
 
     // Google Analytics: change UA-XXXXX-X to be your site's ID.
     script.
@@ -55,8 +48,12 @@ html.no-js
 
     // build:js scripts/vendor.js
     // bower:js
+    script(src='../bower_components/modernizr/modernizr.js')
     script(src='../bower_components/jquery/dist/jquery.js')
+    script(src='../bower_components/underscore/underscore.js')
+    script(src='../bower_components/backbone/backbone.js')
     // endbower
+
     // endbuild
 
     // build:js scripts/plugins.js

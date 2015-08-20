@@ -1,4 +1,5 @@
 $icon-font-path: '../fonts/';
+$margin-hf: 15px;
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
@@ -34,13 +35,16 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     line-height: 40px;
-    padding-bottom: 19px;
+    padding-bottom: 5px;
   }
 }
 
+.text-muted{
+  text-align:center;
+}
 /* Custom page footer */
 .footer {
-  padding-top: 19px;
+  padding-top: 10px;
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
@@ -68,9 +72,9 @@ body {
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1000px) {
   .container {
-    max-width: 730px;
+    min-width: 1000px;
   }
 
   /* Remove the padding we set earlier */
@@ -83,7 +87,12 @@ body {
 
   /* Space out the masthead */
   .header {
-    margin-bottom: 30px;
+    margin-bottom: $margin-hf;
+  }
+
+  /* Space out the mastfoot */
+  .footer {
+    margin-top: $margin-hf;
   }
 
   /* Remove the bottom border on the jumbotron for visual effect */
@@ -91,3 +100,90 @@ body {
     border-bottom: 0;
   }
 }
+.part{
+  display: inline-block;
+  width: 48%;
+  vertical-align: top;
+}
+.part-name {
+  font-size: 19px;
+  margin-bottom: 10px;
+  font-weight:bold;
+}
+.form-area, .document-area {
+  border: 1px solid #ddd;
+  background: none repeat scroll 0 0 #fff;
+  padding: 10px 26px 36px 26px;
+  overflow: auto;
+}
+.form-part-name {
+  font-size: 14px;
+  margin-top: 20px;
+  font-weight:bold;
+  margin-left: 10px;
+
+}
+.form-line {
+  margin-left: 10px;
+  margin-top: 15px;
+}
+.name, .adress {
+  display: inline-block;
+  margin-right: 10px;
+}
+#birth-day, #birth-month, #birth-year {
+  margin-right: 10px;
+}
+.sbm {
+  margin-top:10px;
+}
+label {
+  font-weight: normal;
+  margin-bottom:2px;
+}
+.small {
+  width:100px;
+}
+.medium {
+  width:180px;
+}
+input[type='text'], select {
+  height:30px;
+  border-radius: 0px;
+  border:1px solid #ddd;
+  background-color: #fff;
+}
+input[type='submit']{
+    background: #009933;
+    background: -webkit-gradient(linear,left top,left bottom,from(#33CC33),to(#009933));
+    background: -moz-linear-gradient(top,#33CC33,#009933);
+    color: #fff;
+    border:1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 20px;
+}
+input[type='radio']{
+  margin-right: 5px;
+}
+.input-cont{
+  display:inline-block;
+  margin-right: 10px;
+}
+.document-header{
+  text-align:center;
+}
+.doc-field, .doc-field-name{
+  display: inline-block;
+}
+.doc-field-name{
+  width:130px;
+}
+.doc-field-val{
+  width: 300px;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+}
+.splice-val{
+  display: inline-block;
+}
+
