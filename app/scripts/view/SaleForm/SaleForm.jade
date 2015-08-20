@@ -1,0 +1,93 @@
+.part-name
+  | Форма регистрации
+form.user-data(action='url', onsubmit="return false;")
+  .form-area
+    .form-part-name Данные о звезде
+    .form-line
+      .name
+        label Имя
+        div
+          input.medium(type='text', name='starName')
+          .valid
+      .name
+        label Величина
+        div
+          select.medium(name='starSize')
+            option(disabled, selected)
+              | выберите величину
+            - var items = [11, 12, 13, 14, 15]
+            - each item, i in items
+              option('index'='#{i}') #{item}
+          .valid
+    .form-line
+      .name
+        label Созвездие
+        div
+          select.medium(name='starConstellation')
+            option(disabled, selected)
+              | выберите созвездие
+            - var items = ['Андромеда', 'Близнецы', 'Большая Медведица', 'Большой Пес', 'Весы', 'Водолей', 'Возничий', 'Волк', 'Волопас', 'Волосы Вероники', 'Ворон', 'Геркулес', 'Гидра', 'Голубь', 'Гончие Псы', 'Дева', 'Дельфин', 'Дракон', 'Единорог', 'Жертвенник', 'Живописец', 'Жираф', 'Журавль', 'Заяц', 'Змееносец', 'Змея', 'Золотая', 'Рыба', 'Индеец', 'Кассиопея', 'Киль']
+            - each item in items
+              option= item
+          .valid
+    .form-part-name(style='border-top: 1px solid #e5e5e5; padding-top:15px;') Данные о покупателе
+    .form-line
+      .name
+        label Фамилия
+        div
+          input.medium(type='text', name='lastName')
+          .valid
+      .name
+        label Имя
+        div
+          input.medium(type='text', name='firstName')
+          .valid
+    .form-line
+      .name
+        label Отчество
+        div
+          input.medium(type='text', name='patronymic')
+          .valid
+    .form-line
+      div
+        label Дата рождения
+        div
+          input.small(type='text', name='birthdate', maxlength='10', placeholder='дд.мм.гггг')
+          .valid
+    .form-line
+      div
+        label Пол
+        div
+          div.input-cont
+            input(type='radio', name='sex', value='мужской')
+            | муж
+            .valid
+          div.input-cont
+            input(type='radio', name='sex', value='женский')
+            | жен
+    .form-line
+      .adress
+        label Страна
+        div
+          select.medium(name='country')
+            option(disabled, selected)
+              | выберите страну
+            - var items = ['Россия', 'Украина', 'Беларусь']
+            - each item in items
+              option= item
+          .valid
+    .form-line
+      div
+        label Телефон
+          sup   *
+        div
+          input.medium(type='text', name='phone', value='')
+    .form-line
+      div
+        label Адрес эл. почты
+          sup   *
+        div
+          input.medium(type='text', name='email', placeholder='example@mail.ru')
+    .form-line
+      .sbm
+        input(type='submit', value='Сохранить')

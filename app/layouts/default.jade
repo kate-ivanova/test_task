@@ -2,7 +2,7 @@ doctype html
 html.no-js
   head
     meta(charset='utf-8')
-    title My Webapp
+    title Регистрация имени звезды
     meta(name='description' content='')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     // Place favicon.ico and apple-touch-icon.png in the root directory
@@ -15,11 +15,6 @@ html.no-js
     // build:css styles/main.css
     link(rel='stylesheet' href='styles/main.css')
     // endbuild
-
-    // build:js scripts/vendor/modernizr.js
-    script(src='../bower_components/modernizr/modernizr.js')
-    // endbuild
-
   body
     | <!--[if lt IE 10]>
     |   <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -27,22 +22,21 @@ html.no-js
 
     .container
       .header
-        ul.nav.nav-pills.pull-right
-          li.active: a(href='#') Home
-          li: a(href='#') About
-          li: a(href='#') Contact
+        h3.text-muted Регистрация имени звезды
 
-        h3.text-muted My Webapp
+      .part.user-form
 
-      .jumbotron
-        h1 'Allo, 'Allo!
-        p.lead Always a pleasure scaffolding your apps.
-        p: a.btn.btn-lg.btn-success(href='#') Splendid!
-
-      block content
+      .part.user-document
 
       .footer
-        p ♥ from the Yeoman team
+        p
+          sup   * - поля, не обязательные к заполнению
+
+    // templates
+    script#saleForm(type='text/template')
+      include ../scripts/view/SaleForm/SaleForm
+    script#saleDocument(type='text/template')
+      include ../scripts/view/SaleDocument/SaleDocument
 
     // Google Analytics: change UA-XXXXX-X to be your site's ID.
     script.
@@ -57,24 +51,35 @@ html.no-js
     // bower:js
     script(src='/bower_components/modernizr/modernizr.js')
     script(src='/bower_components/jquery/dist/jquery.js')
+<<<<<<< HEAD
+=======
+    script(src='/bower_components/underscore/underscore.js')
+    script(src='/bower_components/backbone/backbone.js')
+    script(src='/bower_components/backbone-validation/dist/backbone-validation-min.js')
+>>>>>>> feature/2_blank
     // endbower
+
     // endbuild
 
     // build:js scripts/plugins.js
-    script(src='../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js')
-    script(src='../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js')
-    script(src='../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js')
-    script(src='../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js')
-    script(src='../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js')
-    script(src='../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js')
-    script(src='../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js')
-    script(src='../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js')
-    script(src='../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js')
-    script(src='../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js')
-    script(src='../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js')
-    script(src='../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js')
     // endbuild
 
-    // build:js scripts/main.js
+
+    script(src='scripts/model/SaleData.js')
+    script(src='scripts/view/SaleForm/SaleForm.js')
+    script(src='scripts/view/SaleDocument/SaleDocument.js')
     script(src='scripts/main.js')
+
     // endbuild
