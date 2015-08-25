@@ -1,0 +1,49 @@
+.part-name Данные о покупке
+.document-area
+  .form-part-name Данные о звезде
+  .form-line
+    .doc-field-name Имя:
+    .doc-field.doc-field-val
+      <%= starName %>
+  .form-line
+    .doc-field-name Величина:
+    .doc-field.doc-field-val
+      <%= starSize %>
+  .form-line
+    .doc-field-name Созвездие:
+    .doc-field.doc-field-val
+      <%= starConstellation %>
+  .form-part-name  Данные о покупателе
+  .form-line
+    .doc-field-name ФИО:
+    .doc-field.doc-field-val
+      .splice-val
+        <%= lastName %>
+      .splice-val
+        <%= firstName %>
+      .splice-val
+        <%= patronymic %>
+  .form-line
+    .doc-field-name Дата рождения:
+    .doc-field.doc-field-val
+      <%= birthdate %>
+  .form-line
+    .doc-field-name Пол:
+    .doc-field.doc-field-val
+      <%= sex %>
+  .form-line
+    .doc-field-name Страна:
+    .doc-field.doc-field-val
+      <%= country %>
+  .form-line
+    .doc-field-name Телефон
+      sup   *
+      |:
+    .doc-field.doc-field-val
+      <%= phone %>
+  .form-line
+    .doc-field-name Адрес эл. почты
+      sup   *
+      |:
+    .doc-field.doc-field-val
+      <%= email %>

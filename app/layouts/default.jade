@@ -12,14 +12,13 @@ html.no-js
     // endbower
     // endbuild
 
-    // build:css styles/main.css
-    link(rel='stylesheet' href='styles/main.css')
-    // endbuild
-
     // build:js scripts/vendor/modernizr.js
     script(src='../bower_components/modernizr/modernizr.js')
     // endbuild
 
+    // build:css styles/main.css
+    link(rel='stylesheet' href='styles/main.css')
+    // endbuild
   body
     | <!--[if lt IE 10]>
     |   <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -29,13 +28,19 @@ html.no-js
       .header
         h3.text-muted Регистрация имени звезды
 
-      block user-form
+      .part.user-form
 
-      block user-document
+      .part.user-document
 
       .footer
         p
           sup   * - поля, не обязательные к заполнению
+
+    // templates
+    script#saleForm(type='text/template')
+      include ../scripts/view/SaleForm/SaleForm
+    script#saleDocument(type='text/template')
+      include ../scripts/view/SaleDocument/SaleDocument
 
     // Google Analytics: change UA-XXXXX-X to be your site's ID.
     script.
@@ -52,6 +57,7 @@ html.no-js
     script(src='../bower_components/jquery/dist/jquery.js')
     script(src='../bower_components/underscore/underscore.js')
     script(src='../bower_components/backbone/backbone.js')
+    script(src='../bower_components/backbone-validation/src/backbone-validation.js')
     // endbower
 
     // endbuild
@@ -71,6 +77,10 @@ html.no-js
     script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js')
     // endbuild
 
-    // build:js scripts/main.js
+
+    script(src='scripts/model/SaleData.js')
+    script(src='scripts/view/SaleForm/SaleForm.js')
+    script(src='scripts/view/SaleDocument/SaleDocument.js')
     script(src='scripts/main.js')
+
     // endbuild
