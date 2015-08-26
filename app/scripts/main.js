@@ -1,10 +1,13 @@
+'use strict';
+var App = {};
+App.Views = {};
+App.Models = {};
 $(function() {
   _.extend(Backbone.Model.prototype, Backbone.Validation.mixin);
   //main
-  var saleData = new SaleData();
-  saleData.on("invalid", function(model, error) {
-    alert(error);
-  });
-  var saleForm = new SaleForm({model: saleData});
-  var saleDocument = new SaleDocument({model: saleData});
+  var saleDataModel = new App.Models.SaleDataModel();
+  var saleFormView = new App.Views.SaleFormView({model: saleDataModel});
+  saleFormView.render();
+  var saleDocumentView = new App.Views.SaleDocumentView({model: saleDataModel});
+  saleDocumentView.render();
 });

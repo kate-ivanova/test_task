@@ -4,7 +4,9 @@
   "dependencies": {
     "bootstrap-sass": "~3.3.5",
     "modernizr": "~2.8.1",
-    "backbone": "~1.2.2"
+    "backbone": "~1.2.2",
+    "jquery": "~2.1.4",
+    "backbone-validation": "~0.11.5"
   },
   "overrides": {
     "bootstrap-sass": {

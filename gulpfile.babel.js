@@ -32,13 +32,29 @@ function lint(files, options) {
       .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
   };
 }
+const lintOptions = {
+  env: {
+    browser: true
+  },
+  rules: {
+    eqeqeq: 0
+  },
+  globals: {
+    App: true,
+    jQuery: false,
+    $: true,
+    _: true,
+    Backbone: true
+  }
+};
+
 const testLintOptions = {
   env: {
     mocha: true
   }
 };
 
-gulp.task('lint', lint('app/scripts/**/*.js'));
+gulp.task('lint', lint('app/scripts/**/*.js', lintOptions));
 gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 
 gulp.task('html', ['views', 'styles'], () => {
@@ -111,6 +127,7 @@ gulp.task('serve', ['views', 'styles', 'fonts'], () => {
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
+  gulp.watch('app/scripts/**/*.js', ['lint']);
   gulp.watch('app/**/*.jade', ['views']);
   gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/fonts/**/*', ['fonts']);
@@ -173,4 +190,10 @@ gulp.task('views', function () {
     .pipe($.jade({pretty: true}))
     .pipe(gulp.dest('.tmp'))
     .pipe(reload({stream: true}));
+});
+
+gulp.task('deploy', ['build'], function () {
+  return gulp.src('dist')
+    .pipe($.subtree())
+    .pipe($.clean());
 });

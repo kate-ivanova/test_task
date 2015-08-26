@@ -1,5 +1,6 @@
+'use strict';
 // model
-var SaleData = Backbone.Model.extend({
+App.Models.SaleDataModel = Backbone.Model.extend({
   defaults: {
     starName: '',
     starSize: '',
@@ -16,45 +17,50 @@ var SaleData = Backbone.Model.extend({
   validation: {
     starName: {
       required: true,
-      msg: "Введите имя звезды"
+      msg: 'Введите имя звезды'
     },
     starSize: {
       required: true,
-      msg: "Выберите величину звезды"
+      msg: 'Выберите величину звезды'
     },
     starConstellation: {
       required: true,
-      msg: "Выберите созвездие"
+      msg: 'Выберите созвездие'
     },
     firstName: {
       required: true,
-      msg: "Введите имя"
+      msg: 'Введите имя'
     },
     lastName: {
       required: true,
-      msg: "Введите фамилию"
+      msg: 'Введите фамилию'
     },
     patronymic: {
       required: true,
-      msg: "Введите отчество"
+      msg: 'Введите отчество'
     },
     birthdate: function(val){
-      if(!val)
-        return 'Введите дату рождения'
-      var bd = val.split(".");
-      if(bd.length != 3 || bd[0].length != 2 || bd[1].length != 2 || bd[2].length != 4)
-        return "Формат даты рождения должен быть дд.мм.гггг!";
-      var curDate = new Date(bd[2], +bd[1]-1, bd[0]);
-      if (curDate.getDate() != bd[0])
-        return "Некорректный день рождения";
-      if (+curDate.getMonth()+1 != +bd[1])
-        return "Некорректный месяц рождения";
-      if (curDate.getFullYear() != bd[2])
-        return "Некорректный год рождения";
+      if(!val){
+        return 'Введите дату рождения';
+      }
+      var bd = val.split('.');
+      if(bd.length != 3 || bd[0].length != 2 || bd[1].length != 2 || bd[2].length != 4){
+        return 'Формат даты рождения должен быть дд.мм.гггг!';
+      }
+      var curDate = new Date(bd[2], +bd[1] - 1, bd[0]);
+      if (curDate.getDate() != bd[0]){
+        return 'Некорректный день рождения';
+      }
+      if (+curDate.getMonth() + 1 != +bd[1]){
+        return 'Некорректный месяц рождения';
+      }
+      if (curDate.getFullYear() != bd[0]){
+        return 'Некорректный год рождения';
+      }
     },
     sex: {
       required: true,
-      msg: "Выберите пол"
+      msg: 'Выберите пол'
     },
     country: {
       required: true,
