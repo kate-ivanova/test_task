@@ -54,7 +54,7 @@ App.Models.SaleDataModel = Backbone.Model.extend({
       if (+curDate.getMonth() + 1 != +bd[1]){
         return 'Некорректный месяц рождения';
       }
-      if (curDate.getFullYear() != bd[3]){
+      if (curDate.getFullYear() != bd[2]){
         return 'Некорректный год рождения';
       }
     },
