@@ -46,9 +46,10 @@ App.Views.SaleFormView = Backbone.View.extend({
       for (var key in notValid) {
         $('[name=' + key + ']').siblings('.valid').html(notValid[key]);
       }
+      $('.save-valid').addClass('err').html('Не все поля корректно заполнены');
     } else {
       localStorage.setItem('starSaleForm', JSON.stringify(this.model.attributes));
-      console.log(localStorage.getItem('form'));
+      $('.save-valid').removeClass('err').html('Успешно сохранено');
     }
   }
 });

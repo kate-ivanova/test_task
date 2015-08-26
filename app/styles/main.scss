@@ -17,7 +17,7 @@ html{
 
 /* Space out content a bit */
 body {
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 20px;
   width: 100%;
   min-width: 1000px;
@@ -121,7 +121,7 @@ body {
 .form-area, .document-area {
   border: 1px solid #ddd;
   background: none repeat scroll 0 0 #fff;
-  padding: 10px 26px 36px 26px;
+  padding: 0px 26px 25px 26px;
   overflow: auto;
 }
 .form-area{
@@ -147,10 +147,15 @@ body {
 .form-area [name=birthDay], .form-area [name=birthMonth], .form-area [name=birthYear] {
   margin-right: 10px;
 }
-.valid {
+.valid, .save-valid {
   position: absolute;
-  color: red;
   font-size: 11px;
+}
+.save-valid {
+  bottom: -20px;
+}
+.valid, .save-valid.err {
+ color: red;
 }
 .sbm {
   margin-top:10px;
