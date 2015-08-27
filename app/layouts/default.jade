@@ -34,9 +34,9 @@ html.no-js
 
     // templates
     script#saleForm(type='text/template')
-      include ../scripts/view/SaleForm/SaleForm
+      include ../scripts/view/SaleFormView/SaleFormView
     script#saleDocument(type='text/template')
-      include ../scripts/view/SaleDocument/SaleDocument
+      include ../scripts/view/SaleDocumentView/SaleDocumentView
 
     // Google Analytics: change UA-XXXXX-X to be your site's ID.
     script.
@@ -73,8 +73,10 @@ html.no-js
     // endbuild
 
     // build:js scripts/main.js
+    script(src='scripts/index.js')
+    script(src='scripts/model/SaleDataModel.js')
+    script(src='scripts/view/SaleFormView/SaleFormView.js')
+    script(src='scripts/view/SaleDocumentView/SaleDocumentView.js')
     script(src='scripts/main.js')
-    script(src='scripts/model/SaleData.js')
-    script(src='scripts/view/SaleForm/SaleForm.js')
-    script(src='scripts/view/SaleDocument/SaleDocument.js')
+
     // endbuild
