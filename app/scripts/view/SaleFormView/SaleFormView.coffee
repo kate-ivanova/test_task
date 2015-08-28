@@ -1,6 +1,6 @@
 'use strict'
 Window.App.Views.SaleFormView = Backbone.View.extend
-  el: $('.user-form')
+  el: $('.sale-form')
 
   template: _.template($('#saleForm').html())
 
@@ -14,28 +14,26 @@ Window.App.Views.SaleFormView = Backbone.View.extend
     this.$el.html(this.template)
 
   changeData: (event) ->
-    fieldName = $(event.currentTarget).attr('name')
-    fieldVal = $(event.currentTarget).val()
+    attr = $(event.currentTarget)
+    attrName = attr.attr('data-js-attr')
+    attrVal = if attr.attr('type') == 'radio' and not attr.prop('checked') then '' else attr.val()
+    attrValid = $(event.currentTarget).siblings('[data-js-attr-validation]')
     # birthday
-    fieldVal += '.' if fieldName == 'birthDay'
-    # radio
-    fieldVal = '' if $(event.currentTarget).attr('type') == 'radio' and not $(event.currentTarget).prop('checked')
-    # not valid
-    notValid = this.model.preValidate(fieldName, fieldVal)
-    if notValid
-      $(event.currentTarget).siblings('.valid').html(notValid)
+    attrName += '.' if attrName == 'birthDay'
+    validationFault = this.model.preValidate(attrName, attrVal)
+    if validationFault
+      attrValid.addClass('__fault').html(validationFault)
     else
-      $(event.currentTarget).siblings('.valid').html('')
-      if $(event.currentTarget).attr('type') == 'radio'
-         $(event.currentTarget).parent().siblings().find('.valid').html('')
-      this.model.set(fieldName, fieldVal)
+      attrValid.removeClass('__fault').html('')
+      this.model.set(attrName, attrVal)
 
-  saveData: ->
-    notValid = this.model.validate()
-    if notValid
-      for key of notValid
-        $('[name=' + key + ']').siblings('.valid').html(notValid[key])
-      $('.save-valid').addClass('err').html('Не все поля корректно заполнены')
+  saveData: (event) ->
+    formValid = $(event.currentTarget).siblings('[data-js-submit-validation]')
+    validationFault = this.model.validate()
+    if validationFault
+      for key of validationFault
+        $('[data-js-attr=' + key + ']').siblings('[data-js-attr-validation]').addClass('__fault').html(validationFault[key])
+      formValid.addClass('__fault').html('Не все поля корректно заполнены')
     else
-      localStorage.setItem('starSaleForm', JSON.stringify(this.model.attributes))
-      $('.save-valid').removeClass('err').html('Успешно сохранено')
+      localStorage.setItem('SaleForm', JSON.stringify(this.model.attributes))
+      formValid.removeClass('__fault').html('Успешно сохранено')

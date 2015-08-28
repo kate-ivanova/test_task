@@ -1,6 +1,6 @@
 'use strict'
 Window.App.Views.SaleDocumentView = Backbone.View.extend
-  el: $('.user-document')
+  el: $('.sale-document')
   template: _.template($('#saleDocument').html())
   initialize: ->
     this.model.bind('change', this.render, this)

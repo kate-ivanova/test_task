@@ -1,1 +1,33 @@
 extends layouts/default
+
+block styles
+  // build:css main.css
+  link(rel='stylesheet' href='styles/main.css')
+  link(rel='stylesheet' href='styles/SaleFormView.css')
+  link(rel='stylesheet' href='styles/SaleDocumentView.css')
+  // endbuild
+
+block content
+  .header
+    h3.text-muted Регистрация имени звезды
+  .content
+    .sale-form
+    .sale-document
+  .footer
+    p
+      sup   * - поля, не обязательные к заполнению
+
+  // templates
+  script#saleForm(type='text/template')
+    include scripts/view/SaleFormView/SaleFormView
+  script#saleDocument(type='text/template')
+    include scripts/view/SaleDocumentView/SaleDocumentView
+
+block scripts
+  // build:js scripts/main.js
+  script(src='scripts/app.js')
+  script(src='scripts/model/SaleDataModel.js')
+  script(src='scripts/view/SaleFormView/SaleFormView.js')
+  script(src='scripts/view/SaleDocumentView/SaleDocumentView.js')
+  script(src='scripts/main.js')
+  // endbuild

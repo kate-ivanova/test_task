@@ -1,49 +1,34 @@
-.part-name Данные о покупке
-.document-area
-  .form-part-name Данные о звезде
-  .form-line
-    .doc-field-name Имя:
-    .doc-field.doc-field-val
-      <%= starName %>
-  .form-line
-    .doc-field-name Величина:
-    .doc-field.doc-field-val
-      <%= starSize %>
-  .form-line
-    .doc-field-name Созвездие:
-    .doc-field.doc-field-val
-      <%= starConstellation %>
-  .form-part-name  Данные о покупателе
-  .form-line
-    .doc-field-name ФИО:
-    .doc-field.doc-field-val
-      .splice-val
-        <%= lastName %>
-      .splice-val
-        <%= firstName %>
-      .splice-val
-        <%= patronymic %>
-  .form-line
-    .doc-field-name Дата рождения:
-    .doc-field.doc-field-val
-      <%= birthdate %>
-  .form-line
-    .doc-field-name Пол:
-    .doc-field.doc-field-val
-      <%= sex %>
-  .form-line
-    .doc-field-name Страна:
-    .doc-field.doc-field-val
-      <%= country %>
-  .form-line
-    .doc-field-name Телефон
-      sup   *
-      |:
-    .doc-field.doc-field-val
-      <%= phone %>
-  .form-line
-    .doc-field-name Адрес эл. почты
-      sup   *
-      |:
-    .doc-field.doc-field-val
-      <%= email %>
+.sale-document--name Данные о покупке
+.sale-document--part-name Данные о звезде
+.sale-document--line
+  .sale-document--attr Имя:
+  .sale-document--val <%= starName %>
+.sale-document--line
+  .sale-document--attr Величина:
+  .sale-document--val <%= starSize %>
+.sale-document--line
+  .sale-document--attr Созвездие:
+  .sale-document--val <%= starConstellation %>
+.sale-document--part-name  Данные о покупателе
+.sale-document--line
+  .sale-document--attr ФИО:
+  .sale-document--val <%= lastName %>&nbsp;<%= firstName %>&nbsp;<%= patronymic %>
+.sale-document--line
+  .sale-document--attr Дата рождения:
+  .sale-document--val <%= birthdate %>
+.sale-document--line
+  .sale-document--attr Пол:
+  .sale-document--val <%= sex %>
+.sale-document--line
+  .sale-document--attr Страна:
+  .sale-document--val <%= country %>
+.sale-document--line
+  .sale-document--attr Телефон
+    sup   *
+    |:
+  .sale-document--val <%= phone %>
+.sale-document--line
+  .sale-document--attr Адрес эл. почты
+    sup   *
+    |:
+  .sale-document--val <%= email %>

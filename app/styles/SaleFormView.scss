@@ -1,0 +1,68 @@
+.sale-form {
+  &--name {
+    font-size: 19px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  &--part-name {
+    font-size: 14px;
+    margin-top: 20px;
+    font-weight:bold;
+    margin-left: 10px;
+  }
+  &--line {
+    margin-left: 10px;
+    margin-top: 20px;
+    position: relative;
+  }
+  &--attr {
+    display: inline-block;
+    margin-right: 10px;
+    &--validation {
+      position: absolute;
+      font-size: 11px;
+      &.__fault {
+        color: red;
+      }
+    }
+    label {
+      font-weight: normal;
+      margin-bottom:2px;
+      margin-left: 2px;
+    }
+    input[type='text'], select {
+      height:30px;
+      border-radius: 0px;
+      border:1px solid #ddd;
+      background-color: #fff;
+    }
+    input[type='radio']{
+      margin-right: 5px;
+    }
+  }
+  &--star-name {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  &--separate-line {
+    border-top: 1px solid #e5e5e5;
+  }
+  &--submit {
+    margin-top:10px;
+    background: #009933;
+    background: -webkit-gradient(linear,left top,left bottom,from(#33CC33),to(#009933));
+    background: -moz-linear-gradient(top,#33CC33,#009933);
+    color: #fff;
+    border:1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 20px;
+    &--validation {
+      position: absolute;
+      font-size: 11px;
+      bottom: -20px;
+      &.__fault {
+        color: red;
+      }
+    }
+  }
+}
