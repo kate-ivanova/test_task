@@ -38,14 +38,16 @@ Window.App.Models.SaleDataModel = Backbone.Model.extend
       required: true
       msg: 'Введите отчество'
 
-    birthdate: (val) ->
-      return 'Введите дату рождения' unless val
-      bd = val.split('.')
-      return 'Формат даты рождения должен быть дд.мм.гггг!' if bd.length isnt 3 or bd[0].length isnt 2 or bd[1].length isnt 2 or bd[2].length isnt 4
-      curDate = new Date(bd[2], +bd[1] - 1, bd[0])
-      return 'Некорректный день рождения' unless curDate.getDate() != bd[0]
-      return 'Некорректный месяц рождения' unless (+curDate.getMonth() + 1) is (+bd[1])
-      return 'Некорректный год рождения' unless curDate.getFullYear() != bd[2]
+    birthdate: (value, attr, computedState) ->
+        return 'Введите дату в формате дд.мм.гггг' unless not value or value.match(/^\d{2}\.\d{2}\.\d{4}$/)
+        separatedValue = value.split('.')
+        birthDay = +separatedValue[0]
+        birthMonth = +separatedValue[1]
+        birthYear = +separatedValue[2]
+        testDate = new Date(birthYear, birthMonth-1, birthDay)
+        return 'Некорректный день рождения' unless +testDate.getDate() is birthDay
+        return 'Некорректный месяц рождения' unless (+testDate.getMonth() + 1) is birthMonth
+        return 'Некорректный год рождения' unless +testDate.getFullYear() is birthYear
 
     sex:
       required: true
@@ -54,3 +56,10 @@ Window.App.Models.SaleDataModel = Backbone.Model.extend
     country:
       required: true
       msg: 'Выберите страну'
+
+    phone:
+      required: false
+      pattern: /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/
+    email:
+      required: false
+      pattern: 'email'
