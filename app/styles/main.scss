@@ -17,10 +17,9 @@ html{
 
 /* Space out content a bit */
 body {
-  padding-top: 10px;
-  padding-bottom: 20px;
   width: 100%;
   min-width: 1000px;
+  margin: 0px 0px 0px 0px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -32,7 +31,9 @@ body {
   max-width: 1200px;
   margin: auto;
 }
-
+.content {
+  text-align: center;
+}
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
@@ -51,7 +52,6 @@ body {
 }
 /* Custom page footer */
 .footer {
-  padding-top: 10px;
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
@@ -79,19 +79,14 @@ body {
 .content {
   min-width: 1000px;
 }
-.sale-form, .sale-document{
-  display: inline-block;
-  width: 48%;
-  min-width: 480px;
-  vertical-align: top;
-  border: 1px solid #ddd;
-  background: none repeat scroll 0 0 #fff;
-  padding: 15px 26px 25px 26px;
-  margin-right: 10px;
-  margin-left: 10px;
-}
 .document-header{
   text-align:center;
+}
+input {
+  padding-left: 8px;
+}
+select, option {
+  padding-left: 4px;
 }
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 1000px) {
