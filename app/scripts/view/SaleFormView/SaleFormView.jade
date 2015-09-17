@@ -1,13 +1,12 @@
-.sale-form--name
-  | Форма регистрации
-form(action='url', onsubmit="return false;")
-  .sale-form--part-name Данные о звезде
+form.sale-form(action='url', onsubmit="return false;")
+  h3 Форма регистрации
+  h4 Данные о звезде
   .sale-form--line
     .sale-form--attr
       label Имя
       br
       input.__medium(type='text', data-js-attr='starName')
-      .sale-form--attr--validation(data-js-attr-validation)
+      .sale-form--attr-validation-error(data-js-attr-validation-error)
     .sale-form--attr
       label Величина
       br
@@ -17,7 +16,7 @@ form(action='url', onsubmit="return false;")
         - var items = [11, 12, 13, 14, 15]
         - each item, i in items
           option('index'='#{i}') #{item}
-      .sale-form--attr--validation(data-js-attr-validation)
+      .sale-form--attr-validation-error(data-js-attr-validation-error)
   .sale-form--line
     .sale-form--attr
       label Созвездие
@@ -28,33 +27,33 @@ form(action='url', onsubmit="return false;")
         - var items = ['Андромеда', 'Близнецы', 'Большая Медведица', 'Большой Пес', 'Весы', 'Водолей', 'Возничий', 'Волк', 'Волопас', 'Волосы Вероники', 'Ворон', 'Геркулес', 'Гидра', 'Голубь', 'Гончие Псы', 'Дева', 'Дельфин', 'Дракон', 'Единорог', 'Жертвенник', 'Живописец', 'Жираф', 'Журавль', 'Заяц', 'Змееносец', 'Змея', 'Золотая', 'Рыба', 'Индеец', 'Кассиопея', 'Киль']
         - each item in items
           option= item
-      .sale-form--attr--validation(data-js-attr-validation)
+      .sale-form--attr-validation-error(data-js-attr-validation-error)
   br
   .sale-form--separate-line
-  .sale-form--part-name Данные о покупателе
+  h4 Данные о покупателе
   .sale-form--line
     .sale-form--attr
       label Фамилия
       br
       input.__medium(type='text', data-js-attr='lastName')
-      .sale-form--attr--validation(data-js-attr-validation)
+      .sale-form--attr-validation-error(data-js-attr-validation-error)
     .sale-form--attr
       label Имя
       br
       input.__medium(type='text', data-js-attr='firstName')
-      .sale-form--attr--validation(data-js-attr-validation)
+      .sale-form--attr-validation-error(data-js-attr-validation-error)
   .sale-form--line
     .sale-form--attr
       label Отчество
       br
       input.__medium(type='text', data-js-attr='patronymic')
-      .sale-form--attr--validation(data-js-attr-validation)
+      .sale-form--attr-validation-error(data-js-attr-validation-error)
   .sale-form--line
     .sale-form--attr
       label Дата рождения
       br
       input.__small(type='text', data-js-attr='birthdate', maxlength='10', placeholder='дд.мм.гггг')
-      .sale-form--attr--validation(data-js-attr-validation)
+      .validation-error(data-js-attr-validation-error)
   .sale-form--line
     .sale-form--attr
       label Пол
@@ -63,7 +62,7 @@ form(action='url', onsubmit="return false;")
       | муж&nbsp;&nbsp;&nbsp;
       input(type='radio', data-js-attr='sex', value='женский')
       | жен
-      .sale-form--attr--validation(data-js-attr-validation)
+      .sale-form--attr-validation-error(data-js-attr-validation-error)
   .sale-form--line
     .sale-form--attr
       label Страна
@@ -74,7 +73,7 @@ form(action='url', onsubmit="return false;")
         - var items = ['Россия', 'Украина', 'Беларусь']
         - each item in items
           option= item
-      .sale-form--attr--validation(data-js-attr-validation)
+      .sale-form--attr-validation-error(data-js-attr-validation-error)
   .sale-form--line
     .sale-form--attr
       label Телефон
@@ -89,6 +88,6 @@ form(action='url', onsubmit="return false;")
       input.__medium(type='text', data-js-attr='email', placeholder='example@mail.ru')
   .sale-form--line
     input.sale-form--submit(type='submit', value='Сохранить')
-    .sale-form--submit--validation(data-js-submit-validation)
+    .sale-form--submit-validation-error(data-js-submit-validation-error)
   .sale-form--note
     sup   * - поля, не обязательные к заполнению

@@ -179,7 +179,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app/layouts'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['clean', 'lint', 'html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
@@ -187,20 +187,20 @@ gulp.task('default', ['clean'], () => {
   gulp.start('build');
 });
 
-gulp.task('views', function () {
+gulp.task('views', () => {
   return gulp.src('app/*.jade')
     .pipe($.jade({pretty: true}))
     .pipe(gulp.dest('.tmp'))
     .pipe(reload({stream: true}));
 });
 
-gulp.task('deploy', ['build'], function () {
+gulp.task('deploy', ['build'], () => {
   return gulp.src('dist')
     .pipe($.subtree())
     .pipe($.clean());
 });
 
-gulp.task('scripts', function () {
+gulp.task('scripts', () => {
   return gulp.src('app/scripts/**/*.coffee')
     .pipe($.coffee())
     .pipe(gulp.dest('.tmp/scripts'));

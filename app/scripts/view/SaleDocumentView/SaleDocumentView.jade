@@ -1,34 +1,21 @@
-.sale-document--name Данные о покупке
-.sale-document--part-name Данные о звезде
-.sale-document--line
-  .sale-document--attr Имя:
-  .sale-document--val <%= starName %>
-.sale-document--line
-  .sale-document--attr Величина:
-  .sale-document--val <%= starSize %>
-.sale-document--line
-  .sale-document--attr Созвездие:
-  .sale-document--val <%= starConstellation %>
-.sale-document--part-name  Данные о покупателе
-.sale-document--line
-  .sale-document--attr ФИО:
-  .sale-document--val <%= lastName %>&nbsp;<%= firstName %>&nbsp;<%= patronymic %>
-.sale-document--line
-  .sale-document--attr Дата рождения:
-  .sale-document--val <%= birthdate %>
-.sale-document--line
-  .sale-document--attr Пол:
-  .sale-document--val <%= sex %>
-.sale-document--line
-  .sale-document--attr Страна:
-  .sale-document--val <%= country %>
-.sale-document--line
-  .sale-document--attr Телефон
-    sup   *
-    |:
-  .sale-document--val <%= phone %>
-.sale-document--line
-  .sale-document--attr Адрес эл. почты
-    sup   *
-    |:
-  .sale-document--val <%= email %>
+include ../../mixin/SaleDocumentMixin
+
+.sale-document
+  h3 Данные о покупке
+  h4 Данные о звезде
+  +documentLine('Имя', 'starName', true)
+  +documentLine('Величина', 'starSize', true)
+  +documentLine('Созвездие', 'starConstellation', true)
+  sale-document--separate-line
+  h4  Данные о покупателе
+  .sale-document--line
+    .sale-document--attr ФИО:
+    .sale-document--val
+      span <%= lastName %>
+      span <%= firstName %>
+      span <%= patronymic %>
+  +documentLine('Дата рождения', 'birthdate', true)
+  +documentLine('Пол', 'sex', true)
+  +documentLine('Страна', 'country', true)
+  +documentLine('Телефон', 'phone', false)
+  +documentLine('Адрес эл. почты', 'email', false)

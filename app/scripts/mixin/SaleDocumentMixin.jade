@@ -1,0 +1,7 @@
+mixin documentLine(attrFriendlyName, attrName, necessary)
+  .sale-document--line
+    .sale-document--attr #{attrFriendlyName}
+      if !necessary
+        sup   *
+      |:
+    .sale-document--val <%= #{attrName} %>

@@ -39,7 +39,7 @@ Window.App.Models.SaleDataModel = Backbone.Model.extend
       msg: 'Введите отчество'
 
     birthdate: (value, attr, computedState) ->
-        return 'Введите дату в формате дд.мм.гггг' unless not value or value.match(/^\d{2}\.\d{2}\.\d{4}$/)
+        return 'Формат даты - дд.мм.гггг' unless value and value.match(/^\d{2}\.\d{2}\.\d{4}$/)
         separatedValue = value.split('.')
         birthDay = +separatedValue[0]
         birthMonth = +separatedValue[1]
@@ -60,6 +60,10 @@ Window.App.Models.SaleDataModel = Backbone.Model.extend
     phone:
       required: false
       pattern: /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/
+
     email:
       required: false
       pattern: 'email'
+
+  submit: ->
+    localStorage.setItem('SaleData', @attributes)

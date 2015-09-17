@@ -1,11 +1,11 @@
 'use strict'
 Window.App.Views.SaleDocumentView = Backbone.View.extend
-  el: $('.sale-document')
+  el: $('[data-js-sale-document]')
 
   template: _.template($('#saleDocument').html())
 
   initialize: ->
-    this.listenTo(this.model, 'change', this.render)
+    @listenTo(@model, 'change', @render)
 
   render: ->
-    this.$el.html(this.template(this.model.toJSON()))
+    @$el.html(@template(@model.toJSON()))

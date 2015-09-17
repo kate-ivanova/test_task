@@ -23,19 +23,33 @@ body {
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.content,
-.footer {
+.header-layout,
+.content-layout,
+.footer-layout {
   padding-left: 15px;
   padding-right: 15px;
   max-width: 1200px;
   margin: auto;
 }
-.content {
+.content-layout {
   text-align: center;
+  min-width: 1000px;
+  &--part {
+    display: inline-block;
+    width: 45%;
+    min-width: 450px;
+    vertical-align: top;
+    border: 1px solid #ddd;
+    background: none repeat scroll 0 0 #fff;
+    padding: 15px 26px 25px 26px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: left;
+    padding: 15px 26px 25px 26px;
+  }
 }
 /* Custom page header */
-.header {
+.header-layout {
   border-bottom: 1px solid #e5e5e5;
 
   /* Make the masthead heading the same height as the navigation */
@@ -51,7 +65,7 @@ body {
   text-align:center;
 }
 /* Custom page footer */
-.footer {
+.footer-layout {
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
@@ -76,9 +90,7 @@ body {
     margin-top: 28px;
   }
 }
-.content {
-  min-width: 1000px;
-}
+
 .document-header{
   text-align:center;
 }
@@ -90,9 +102,9 @@ select, option {
 }
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 1000px) {
-  .header,
-  .content,
-  .footer {
+  .header-layout,
+  .content-layout,
+  .footer-layout {
     min-width: 1000px;
     max-width: 1200px;
     padding-left: 0;
@@ -100,12 +112,12 @@ select, option {
   }
 
   /* Space out the masthead */
-  .header {
+  .header-layout {
     margin-bottom: $margin-hf;
   }
 
   /* Space out the mastfoot */
-  .footer {
+  .footer-layout {
     margin-top: $margin-hf;
   }
 

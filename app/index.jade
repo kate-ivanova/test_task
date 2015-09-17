@@ -1,19 +1,19 @@
-extends layouts/default
+extends layouts/base
 
 block styles
-  // build:css main.css
+  // build:css css/main.css
   link(rel='stylesheet' href='styles/main.css')
   link(rel='stylesheet' href='styles/SaleFormView.css')
   link(rel='stylesheet' href='styles/SaleDocumentView.css')
   // endbuild
 
 block content
-  .header
+  .header-layout
     h3.text-muted Регистрация имени звезды
-  .content
-    .sale-form
-    .sale-document
-  .footer
+  .content-layout
+    .content-layout--part(data-js-sale-form)
+    .content-layout--part(data-js-sale-document)
+  .footer-layout
 
   // templates
   script#saleForm(type='text/template')
