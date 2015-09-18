@@ -5,17 +5,17 @@ Window.App.Views.SaleFormView = Backbone.View.extend
   template: _.template(@$('#saleForm').html())
 
   events:
-    'input input': 'onInput'
-    'change select': 'setModelAttr'
-    'blur input,select': 'setModelAttr'
-    'submit form': 'submit'
+    'input input': 'onChangeData'
+    'change select': 'onChangeData'
+    'blur input,select': 'onChangeData'
+    'submit form': 'onSubmit'
 
   render: ->
     @$el.html(@template)
     @$('[data-js-attr=birthdate]').mask '99.99.9999'
     @$('[data-js-attr=phone]').mask '+7 (999) 999-99-99'
 
-  setModelAttr: (event) ->
+  onChangeData: (event) ->
     $changedField = @$(event.currentTarget)
     $validation = @$(event.currentTarget).siblings '[data-js-attr-validation-error]'
     fieldName = $changedField.attr 'data-js-attr'
@@ -24,7 +24,7 @@ Window.App.Views.SaleFormView = Backbone.View.extend
     $validation.html validationError
     @model.set fieldName, fieldVal
 
-  submit: (event) ->
+  onSubmit: (event) ->
     formValid = @$(event.currentTarget).find '[data-js-submit-validation-error]'
     validation = @model.validate()
     if validation
