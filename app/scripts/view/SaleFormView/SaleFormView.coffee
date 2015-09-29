@@ -1,8 +1,8 @@
 'use strict'
-Window.App.Views.SaleFormView = Backbone.View.extend
+Window.App.Views.SaleFormView = MixinBackbone(Backbone.Epoxy.View).extend
   el: @$('[data-js-sale-form]')
 
-  template: _.template(@$('#saleForm').html())
+  template: '#saleForm'
 
   events:
     'input input': 'onChangeData'
@@ -11,7 +11,6 @@ Window.App.Views.SaleFormView = Backbone.View.extend
     'submit form': 'onSubmit'
 
   render: ->
-    @$el.html(@template)
     @$('[data-js-attr=birthdate]').mask '99.99.9999'
     @$('[data-js-attr=phone]').mask '+7 (999) 999-99-99'
 
@@ -22,7 +21,8 @@ Window.App.Views.SaleFormView = Backbone.View.extend
     fieldVal = if $changedField.is('[type=radio]') and not $changedField.prop('checked') then '' else $changedField.val()
     validationError = @model.preValidate fieldName, fieldVal
     $validation.html validationError
-    @model.set fieldName, fieldVal
+    if !validationError
+      @model.set fieldName, fieldVal
 
   onSubmit: (event) ->
     formValid = @$(event.currentTarget).find '[data-js-submit-validation-error]'

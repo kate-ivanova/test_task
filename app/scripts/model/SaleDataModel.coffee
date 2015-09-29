@@ -1,5 +1,5 @@
 'use strict'
-Window.App.Models.SaleDataModel = Backbone.Model.extend
+Window.App.Models.SaleDataModel = Backbone.Epoxy.Model.extend
   defaults:
     starName: ''
     starSize: ''
@@ -12,6 +12,10 @@ Window.App.Models.SaleDataModel = Backbone.Model.extend
     country: ''
     phone: ''
     email: ''
+
+  computeds:
+    fullName: ->
+      (@get 'lastName') + ' ' + (@get 'firstName') + ' ' + (@get 'patronymic')
 
   validation:
     starName:

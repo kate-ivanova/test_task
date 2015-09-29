@@ -53,14 +53,14 @@ form.sale-form(action='url', onsubmit="return false;")
       label Дата рождения
       br
       input.__small(type='text', data-js-attr='birthdate', maxlength='10', placeholder='дд.мм.гггг')
-      .validation-error(data-js-attr-validation-error)
+      .sale-form--attr-validation-error(data-js-attr-validation-error)
   .sale-form--line
     .sale-form--attr
       label Пол
       br
-      input(type='radio', data-js-attr='sex', value='мужской')
+      input(type='radio', data-js-attr='sex', name='sex', value='мужской')
       | муж&nbsp;&nbsp;&nbsp;
-      input(type='radio', data-js-attr='sex', value='женский')
+      input(type='radio', data-js-attr='sex', name='sex', value='женский')
       | жен
       .sale-form--attr-validation-error(data-js-attr-validation-error)
   .sale-form--line
